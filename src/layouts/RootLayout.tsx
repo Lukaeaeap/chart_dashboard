@@ -5,25 +5,22 @@ import Sidebar from "../components/Sidebar"
 
 export default function RootLayout() {
   return (
-    <Grid templateColumns="repeat(6,1fr)" bg="gray.100" width="100vw" height="100vh">
+    <Grid templateColumns="repeat(3,1fr)" bg="#F6F6F8" width="100vw" height="100vh">
       <GridItem
         as="aside"
-        colSpan={{ base: 6, lg: 2, xl: 1 }}
-        bg="purple.400"
-        minHeight={{ lg: '100vh' }}
-        p={{ base: '20px', lg: '30px', xl: '40px' }}>
+        bg="#FFFFFF"
+        width='220px'
+        p={{ base: '16px', lg: '30px', xl: '40px' }}>
         <Sidebar />
       </GridItem>
 
       <GridItem
         as="main"
-        colSpan={{ base: 6, lg: 4, xl: 5 }}
-
+        width="1200px"
         p={{ base: '20px', lg: '30px', xl: '40px' }}>
         <Navbar />
         <Outlet />
       </GridItem>
-
     </Grid>
   )
 }

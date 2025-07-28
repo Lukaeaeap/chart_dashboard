@@ -1,6 +1,5 @@
 import {
-  SimpleGrid, Box,
-
+  Box, Text, Flex, Button
 } from '@chakra-ui/react';
 // import { useLoaderData } from 'react-router-dom';
 
@@ -9,23 +8,32 @@ import {
 export default function Dashboard() {
 
   const boxStyles = {
-    bg: 'blue.400',
+    bg: 'white',
+    m: '20px',
     p: '20px',
-    color: 'white',
-    m: '10px',
-    textAlign: "center",
-    _hover: {
-      bg: 'green.600',
-      color: 'white'
-    }
+    color: 'black',
+    textAlign: "left",
+    borderRadius: "15px",
   }
 
   return (
-    <SimpleGrid gap={10} minChildWidth="250px" >
+
+    <>
+      <Flex alignItems="center" gap="10px" width="100%" justifyContent="space-between">
+        <Text fontSize="lg" >Wed, Oct 27</Text>
+        <Box>
+          <Text fontSize="sm" color="gray.500" >Choose Platform:</Text>
+          <Button bg="white" color="black" size="sm">Alibaba</Button>
+          <Button bg="white" color="black" size="sm">Ali Express</Button>
+          <Button bg="#6F6CF3" color="white" size="sm">All</Button>
+        </Box>
+
+      </Flex>
 
       <Box {...boxStyles}>
-        A box with text
+        <Text fontSize="2xl" fontWeight="bold">Box Title</Text>
+        <Text fontSize="md" color="gray.500">Box content goes here.</Text>
       </Box>
-    </SimpleGrid>
+    </>
   )
 }
