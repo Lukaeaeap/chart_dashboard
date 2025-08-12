@@ -1,85 +1,47 @@
-import { List, Text } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
-import { Icon } from "@chakra-ui/react"
-import { FaCalendarAlt, FaRegUserCircle } from "react-icons/fa";
+import { VStack, Text, Box } from "@chakra-ui/react";
+import { NavItem } from "./NavItem";
+import { mainNavItems, bottomNavItems } from "../data/navigationData";
 
-export default function Sidebar() {
+const Sidebar = () => {
     return (
-        <>
-            <Text fontSize="32px" color="black" fontFamily="Urbanist">LOGO</Text>
-            <List.Root
-                as="nav"
-                color="black"
-                fontSize="16px"
-                gap="20px"
-                variant="plain"
-            >
-                <List.Item marginTop="20px">
-                    <NavLink to="/" style={({ isActive }) => ({
-                        color: isActive ? 'black' : 'black',
-                    })}>
-                        <Icon as={FaCalendarAlt} color="black" mr={2} />
-                        Dashboard
-                    </NavLink>
-                </List.Item>
-                <List.Item>
-                    <NavLink to="/profile" style={({ isActive }) => ({
-                        color: isActive ? 'black' : 'black',
-                    })}>
-                        <Icon as={FaRegUserCircle} color="black" mr={2} />
-                        Reviews</NavLink>
-                </List.Item>
-                <List.Item>
-                    <NavLink to="/profile" style={({ isActive }) => ({
-                        color: isActive ? 'black' : 'black',
-                    })}>
-                        <Icon as={FaRegUserCircle} color="black" mr={2} />
-                        Keywords</NavLink>
-                </List.Item>
-                <List.Item>
-                    <NavLink to="/profile" style={({ isActive }) => ({
-                        color: isActive ? 'black' : 'black',
-                    })}>
-                        <Icon as={FaRegUserCircle} color="black" mr={2} />
-                        Web crawler</NavLink>
-                </List.Item>
-                <List.Item>
-                    <NavLink to="/profile" style={({ isActive }) => ({
-                        color: isActive ? 'black' : 'black',
-                    })}>
-                        <Icon as={FaRegUserCircle} color="black" mr={2} />
-                        Notifications</NavLink>
-                </List.Item>
-                <List.Item>
-                    <NavLink to="/profile" style={({ isActive }) => ({
-                        color: isActive ? 'black' : 'black',
-                    })}>
-                        <Icon as={FaRegUserCircle} color="black" mr={2} />
-                        Settings</NavLink>
-                </List.Item>
-                <List.Item>
-                    <NavLink to="/profile" style={({ isActive }) => ({
-                        color: isActive ? 'black' : 'black',
-                    })}>
-                        <Icon as={FaRegUserCircle} color="black" mr={2} />
-                        Settings</NavLink>
-                </List.Item>
-                <List.Item>
-                    <NavLink to="/profile" style={({ isActive }) => ({
-                        color: isActive ? 'black' : 'black',
-                    })}>
-                        <Icon as={FaRegUserCircle} color="black" mr={2} />
-                        User management</NavLink>
-                </List.Item>
+        <VStack
 
-                <List.Item marginTop="300px">
-                    <NavLink to="/profile" style={({ isActive }) => ({
-                        color: isActive ? 'black' : 'black',
-                    })}>
-                        <Icon as={FaRegUserCircle} color="black" mr={2} />
-                        Log out</NavLink>
-                </List.Item>
-            </List.Root>
-        </>
-    )
-}
+            align="flex-start"
+            justifyContent="left"
+            gap={4}
+            width="100%"
+            minHeight="calc(100vh - 80px)"
+        >
+            <Text fontSize="32px" fontWeight="extrabold" color="black" mb={6}>LOGO</Text>
+
+            <VStack
+                as="nav"
+                alignItems="flex-start"
+                gap={3}
+                width="100%"
+                flex="1">
+                {mainNavItems.map((item, index) => (
+                    <NavItem
+                        key={index}
+                        to={item.to}
+                        icon={item.icon}
+                        label={item.label}
+                    />
+                ))}
+            </VStack>
+
+            <Box width="100%" mt="auto" pt={4}>
+                {bottomNavItems.map((item, index) => (
+                    <NavItem
+                        key={index}
+                        to={item.to}
+                        icon={item.icon}
+                        label={item.label}
+                    />
+                ))}
+            </Box>
+        </VStack>
+    );
+};
+
+export default Sidebar;
