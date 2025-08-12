@@ -1,5 +1,6 @@
 import { VStack, Text, Box } from "@chakra-ui/react";
 import { NavItem } from "./NavItem";
+import { LogoutButton } from "./LogoutButton";
 import { mainNavItems, bottomNavItems } from "../data/navigationData";
 
 const Sidebar = () => {
@@ -32,9 +33,8 @@ const Sidebar = () => {
 
             <Box width="100%" mt="auto" pt={4}>
                 {bottomNavItems.map((item, index) => (
-                    <NavItem
+                    <LogoutButton
                         key={index}
-                        to={item.to}
                         icon={item.icon}
                         label={item.label}
                     />

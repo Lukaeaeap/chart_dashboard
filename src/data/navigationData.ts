@@ -11,6 +11,12 @@ export interface NavItemData {
     label: string;
 }
 
+export interface LogoutItemData {
+    icon: IconType;
+    label: string;
+    isLogout: true;
+}
+
 export const mainNavItems: NavItemData[] = [
     {
         to: "/",
@@ -49,10 +55,10 @@ export const mainNavItems: NavItemData[] = [
     }
 ];
 
-export const bottomNavItems: NavItemData[] = [
+export const bottomNavItems: LogoutItemData[] = [
     {
-        to: "/log-out",
         icon: IoLogOutOutline,
-        label: "Log out"
+        label: "Log out",
+        isLogout: true
     }
 ];
